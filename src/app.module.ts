@@ -3,6 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { CoffeeBean } from './coffee-beans/entities/coffee-bean.entity';
 import { CoffeeBeansModule } from './coffee-beans/coffee-beans.module';
+import { BeanOfTheDayModule } from './bean-of-the-day/bean-of-the-day.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -19,6 +21,12 @@ import { CoffeeBeansModule } from './coffee-beans/coffee-beans.module';
     }),
     TypeOrmModule.forFeature([CoffeeBean]),
     CoffeeBeansModule,
+    BeanOfTheDayModule,
   ],
 })
+
+@Module({
+  imports: [ScheduleModule.forRoot()],
+})
+
 export class AppModule {}

@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { BeanOfTheDay } from 'src/bean-of-the-day/entities/bean-of-the-day.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity()
 export class CoffeeBean {
@@ -22,4 +23,8 @@ export class CoffeeBean {
 
   @Column()
   image: string;
+
+  @OneToMany(() => BeanOfTheDay, (beanOfTheDay) => beanOfTheDay.coffeeBean)
+  beanOfTheDay?: BeanOfTheDay[];
+
 }

@@ -37,7 +37,6 @@ export class CoffeeBeansService {
   }
 
   async search(query: string, page: number = 1, limit: number = 10): Promise<CoffeeBean[]> {
-    console.log(`Search Query: ${query}, Page: ${page}, Limit: ${limit}`);
     return this.coffeeBeanRepository.createQueryBuilder('bean')
       .where('bean.name ILIKE :query OR bean.country ILIKE :query OR bean.colour ILIKE :query', { query: `%${query}%` })
       .skip((page - 1) * limit)
