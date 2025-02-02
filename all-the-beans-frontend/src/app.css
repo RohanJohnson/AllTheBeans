@@ -1,0 +1,13 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+html{
+    box-sizing: border-box;
+}
+
+body{
+    /* background-color: rgb(255, 249, 240); */
+    min-height: 100svh;
+}
