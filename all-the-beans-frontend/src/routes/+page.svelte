@@ -1,4 +1,6 @@
 <script lang="ts">
+    import BeanOfTheDay from "../components/bean-of-the-day.svelte";
+
 </script>
 
 <div class="container">
@@ -8,10 +10,9 @@
             We sure do! We pride ourselves on providing high quality, fresh
             coffee beans to the whole of the UK.
         </p>
-
-        
     </div>
 </div>
-
-<style lang="scss">
-</style>
+<div class="container">
+    <h2>Check out our Bean of the Day</h2>
+</div>
+<BeanOfTheDay></BeanOfTheDay>

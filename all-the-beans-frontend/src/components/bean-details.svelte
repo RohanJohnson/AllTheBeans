@@ -1,26 +1,10 @@
 <script lang="ts">
-    import { onMount } from "svelte";
-    import { api } from "../../../lib/api";
-    import type { CoffeeBean } from "../../../lib/coffee-bean";
-    import OrderForm from "../../../components/order-form.svelte";
-
-    let bean: CoffeeBean | null = null;
-
-    let id: string | null;
-
-    onMount(async () => {
-        id = window.location.pathname.split("/").filter(Boolean).pop() || null;
-
-        if (id != null) {
-            const response = await api.get<CoffeeBean>(`/coffee-beans/${id}`);
-            bean = response.data;
-            console.log(bean);
-        }
-    });
+    import type { CoffeeBean } from "../lib/coffee-bean";
+    export let bean: CoffeeBean | null = null;
 </script>
 
-{#if bean}
-    <div class="container">
+<div class="container mt-0">
+    {#if bean}
         <div class="container-left">
             <img
                 src={bean.image + "?w=400&h=400&fit=crop"}
@@ -36,9 +20,8 @@
             <br />
             <p class="description">{bean.description}</p>
         </div>
-    </div>
-    <OrderForm {bean}></OrderForm>
-{/if}
+    {/if}
+</div>
 
 <style lang="scss">
     .container {

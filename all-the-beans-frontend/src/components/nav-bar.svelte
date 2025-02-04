@@ -16,7 +16,6 @@
         const handleMediaChange = (e: any) => {
             if (navLinks && navButtonImage) {
                 if (!e.matches) {
-                    console.log(e.matches);
                     navLinks.style.display = "flex";
                     navButtonImage.src = "/menu-icon.svg";
                 } else {
@@ -53,7 +52,6 @@
         <a href="/" class="nav-link">Home</a>
         <a href="/discover" class="nav-link">Discover</a>
         <a href="/bean-of-the-day" class="nav-link">Bean of the Day</a>
-        <a href="/sign-in" class="nav-link">Sign In</a>
     </div>
 </nav>
 

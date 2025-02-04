@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BeanOfTheDay } from './entities/bean-of-the-day.entity';
-import { CoffeeBean } from 'src/coffee-beans/entities/coffee-bean.entity';
+import { CoffeeBean } from '../coffee-beans/entities/coffee-bean.entity';
 
 @Injectable()
 export class BeanOfTheDayService {

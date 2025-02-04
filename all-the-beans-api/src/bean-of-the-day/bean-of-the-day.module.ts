@@ -3,7 +3,7 @@ import { BeanOfTheDayService } from './bean-of-the-day.service';
 import { BeanOfTheDayController } from './bean-of-the-day.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BeanOfTheDay } from './entities/bean-of-the-day.entity';
-import { CoffeeBean } from 'src/coffee-beans/entities/coffee-bean.entity';
+import { CoffeeBean } from '../coffee-beans/entities/coffee-bean.entity';
 import { BeanSchedulerService } from './bean-scheduler.service';
 
 @Module({

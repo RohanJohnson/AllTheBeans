@@ -5,6 +5,7 @@ import { CoffeeBean } from './coffee-beans/entities/coffee-bean.entity';
 import { CoffeeBeansModule } from './coffee-beans/coffee-beans.module';
 import { BeanOfTheDayModule } from './bean-of-the-day/bean-of-the-day.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { ScheduleModule } from '@nestjs/schedule';
     TypeOrmModule.forFeature([CoffeeBean]),
     CoffeeBeansModule,
     BeanOfTheDayModule,
+    OrdersModule,
   ],
 })
 

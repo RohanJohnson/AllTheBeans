@@ -1,4 +1,4 @@
-import { BeanOfTheDay } from 'src/bean-of-the-day/entities/bean-of-the-day.entity';
+import { BeanOfTheDay } from '../../bean-of-the-day/entities/bean-of-the-day.entity';
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity()

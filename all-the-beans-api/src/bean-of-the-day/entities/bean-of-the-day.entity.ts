@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn } from 'typeorm';
-import { CoffeeBean } from 'src/coffee-beans/entities/coffee-bean.entity';
+import { CoffeeBean } from '../../coffee-beans/entities/coffee-bean.entity';
 
 @Entity()
 export class BeanOfTheDay {

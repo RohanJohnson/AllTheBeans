@@ -21,13 +21,14 @@ async function seed() {
         colour: bean.colour,
         cost: parseFloat(bean.Cost.replace('£', '')), // Convert "£39.26" to 39.26
         image: bean.Image,
+        beanOfTheDay: undefined,
       });
   }
 
-  console.log('✅ Seed data inserted successfully');
+  console.log('Seed data inserted successfully');
   await app.close();
 }
 
 seed().catch((error) => {
-  console.error('❌ Error seeding data:', error);
+  console.error('Error seeding data:', error);
 });
