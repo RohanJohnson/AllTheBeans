@@ -1,46 +1,44 @@
 <script lang="ts">
 	import "../app.css";
+	import NavBar from "../components/nav-bar.svelte";
 	let { children } = $props();
 </script>
 
+<svelte:head>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+		rel="stylesheet"
+	/>
+</svelte:head>
+
 <header class="header">
 	<div class="header-left">
-		<div class="logo">All The Beans&trade;</div>
+		<a href="/" class="logo">All The Beans&trade;</a>
 	</div>
 	<div class="header-right">
-		<div class="search">
-			<form action="/discover">
-				<input
-					type="text"
-					name="search-text"
-					id="search-text"
-					placeholder="Search our beans..."
-					class="search-bar"
-				/>
-				<button class="search-button" type="submit">
-					Search
-					<img src="search-icon.svg" alt="Search" />
-				</button>
-			</form>
-		</div>
-		<nav class="nav-links">
-			<a href="/" class="nav-link">Home</a>
-			<a href="/discover" class="nav-link">Discover</a>
-			<a href="/bean-of-the-day" class="nav-link">Bean of the Day</a>
-			<a href="/sign-in" class="nav-link">Sign In</a>
-		</nav>
+		<NavBar>
+			{@render children()}
+		</NavBar>
 	</div>
 </header>
 
 {@render children()}
 
-<footer></footer>
+<footer>
+	<div class="container">
+		<p>All The Beans&trade; HQ</p>
+		<p>123 Roastery Lane, Beanville, SR1 4PQ, UK</p>
+		<p>Email: hello@allthebeans.com | Phone: +44 1234 567890</p>
+	</div>
+</footer>
 
 <style lang="scss">
 	.header {
 		padding: 10px 20px;
 		margin: 0 auto;
-		border-bottom: #2a140e 1px solid;
+		border-bottom: #f5eedc 1px solid;
 		height: 80px;
 		max-width: 1200px;
 
@@ -52,8 +50,12 @@
 		&-left {
 			.logo {
 				font-weight: bold;
-				color: #2a140e;
+				color: #f5eedc;
 				font-size: 20px;
+
+				&:hover {
+					color: #d4a373;
+				}
 			}
 		}
 		&-right {
@@ -63,51 +65,24 @@
 			max-width: 1200px;
 			justify-content: flex-end;
 			gap: 100px;
+		}
+	}
 
-			form {
-				display: flex;
-				gap: 10px;
+	footer {
+		margin-top: 40px;
+		border-top: 2px solid #110604;
+		background-image: url("/footer.jpg");
+		width: 100%;
+		height: fit-content;
+		padding: 20px;
+		background-size: 400px;
+		background-repeat: repeat;
 
-				.search {
-					&-bar {
-						padding: 0 10px;
-						border-left: #aaaaaa 1px solid;
-						border-right: #aaaaaa 1px solid;
-
-						&:focus-visible {
-							outline: none;
-						}
-					}
-
-					&-button {
-						display: flex;
-						gap: 5px;
-						padding: 5px 10px;
-						border-radius: 5px;
-						border: #2a140e 2px solid;
-						color: #2a140e;
-						font-weight: 600;
-
-						&:hover{
-							background-color: #2a140e11;
-						}
-
-						&:active{
-							background-color: #2a140e55;
-						}
-					}
-				}
-			}
-
-			.nav {
-				&-links {
-					display: flex;
-					gap: 40px;
-				}
-
-				&-link {
-				}
-			}
+		.container {
+			margin-top: 0;
+			display: flex;
+			gap: 20px 40px;
+			flex-wrap: wrap;
 		}
 	}
 </style>

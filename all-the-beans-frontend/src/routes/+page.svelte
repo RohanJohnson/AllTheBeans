@@ -1,39 +1,17 @@
-<!-- <script lang="ts">
-    import { onMount } from "svelte";
-    import { api } from "../lib/api";
-    import type { CoffeeBean } from "../lib/coffee-bean";
-
-    let bean: CoffeeBean | null = null;
-
-    onMount(async () => {
-        const response = await api.get<CoffeeBean>("/bean-of-the-day");
-        bean = response.data;
-        console.log(bean);
-    });
+<script lang="ts">
 </script>
 
-{#if bean}
-    <div class="container">
-        <h1>Bean of the Day: {bean.name}</h1>
-        <p>{bean.description}</p>
-        <img src={bean.image} alt={bean.name} />
+<div class="container">
+    <div class="container-left">
+        <h1>Got Beans?</h1>
+        <p class="subtitle">
+            We sure do! We pride ourselves on providing high quality, fresh
+            coffee beans to the whole of the UK.
+        </p>
+
+        
     </div>
-{:else}
-    <p>Loading...</p>
-{/if}
-
-<style lang="scss">
-    .container{
-        h1{
-            color: blue;
-        }
-    }
-</style> -->
-
-
-<script></script>
-
-
+</div>
 
 <style lang="scss">
 </style>
