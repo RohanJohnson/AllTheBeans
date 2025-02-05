@@ -36,8 +36,8 @@
             <br />
             <p class="description">{bean.description}</p>
         </div>
+        <OrderForm {bean}></OrderForm>
     </div>
-    <OrderForm {bean}></OrderForm>
 {/if}
 
 <style lang="scss">

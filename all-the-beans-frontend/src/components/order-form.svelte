@@ -109,11 +109,12 @@
         flex-direction: column;
         gap: 10px;
         max-width: 600px;
-        margin: auto;
         background-color: #f5eedc;
         padding: 20px;
         border-radius: 12px;
         margin-top: 40px;
+        flex-basis: 600px;
+        width: 100%;
 
         p{
             
