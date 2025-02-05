@@ -36,10 +36,13 @@ Ensure the following technologies are installed on your machine:
 
 
 ## Clone the Repository  
+**NOTE:** The document I was given says 'a link to an accessible private
+repository with your work in'. There is no way to make a private repository on GitHub accessible other than a personal invite or setting up a team. So please note that the repository is public, though no private information is on it.
+
 1. Open a terminal or command prompt.  
 2. Clone the project repository:  
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/RohanJohnson/AllTheBeans.git
     ```
 3. Navigate to the project folder:  
     ```bash
