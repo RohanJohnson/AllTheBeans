@@ -1,10 +1,17 @@
+/**
+ * Though I am not using Tailwind directly, 
+ * I am leveraging the fact it deals with some base styling automatically
+ * to save on development time and app.css length 
+**/
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+*{
+    box-sizing: border-box;
+}
 
 html {
-    box-sizing: border-box;
     font-family: Times, 'Times New Roman', serif;
     height: 100%;
     margin: 0;

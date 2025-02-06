@@ -7,6 +7,7 @@
     let bean: CoffeeBean | null = null;
 
     onMount(async () => {
+        // Send API request to get the bean of the day
         const response = await api.get<CoffeeBean>("/bean-of-the-day");
         bean = response.data;
         console.log(bean);

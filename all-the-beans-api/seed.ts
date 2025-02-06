@@ -12,6 +12,7 @@ async function seed() {
   const filePath = path.join(__dirname, 'AllTheBeans.json');
   const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
+  // Make new entry in database for every bean in the JSON file
   for (const bean of jsonData) {
     await coffeeBeansService.create({
         id: bean.id,
@@ -25,10 +26,12 @@ async function seed() {
       });
   }
 
+  // This is output in the server console
   console.log('Seed data inserted successfully');
   await app.close();
 }
 
 seed().catch((error) => {
+  // This is output in the server console
   console.error('Error seeding data:', error);
 });

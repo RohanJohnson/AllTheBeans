@@ -1,6 +1,5 @@
 <script lang="ts">
     import BeanOfTheDay from "../components/bean-of-the-day.svelte";
-
 </script>
 
 <div class="container">

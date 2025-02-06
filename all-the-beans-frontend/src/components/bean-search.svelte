@@ -2,6 +2,8 @@
     export function submitForm(event: SubmitEvent): void {
         event.preventDefault();
 
+        // Get the search text from the form and use it to redirect
+        // the user to the discover page with the query pre-filled
         const form = event.target as HTMLFormElement;
         const searchText = form.elements.namedItem(
             "search-text",

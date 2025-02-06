@@ -7,16 +7,20 @@
     let beans: CoffeeBean[] | null = null;
 
     onMount(async () => {
+        // Get query from URI
         const urlParams = new URLSearchParams(window.location.search);
         const searchText = urlParams.get("search-text");
 
+        // If query exist, send an API request to search the database using it
         if (searchText) {
             const response = await api.get<CoffeeBean[]>(
                 `/coffee-beans/search?query=${searchText}`,
             );
             beans = response.data;
             console.log(beans);
-        } else {
+        } 
+        // If the query doesn't exist, return all beans
+        else {
             const response = await api.get<CoffeeBean[]>("/coffee-beans");
             beans = response.data;
             console.log(beans);

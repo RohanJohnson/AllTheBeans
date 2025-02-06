@@ -16,6 +16,10 @@
     let errors: Errors = {};
     let success: boolean = false;
 
+    // Validate form data
+    // I opted to use this rather than the built in HTML5 validation so that
+    // I could display the user's errors to them in a way that feels integrated
+    // with the site.
     function validateForm(): boolean {
         errors = {};
 
@@ -40,21 +44,26 @@
     }
 
     async function submitOrder(): Promise<void> {
+        // If there are any errors, do not submit order
         if (!validateForm()) return;
 
         try {
+            // Send the order to the API endpoint
             const response = await fetch("http://localhost:3000/orders", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, email, beanId, quantity }),
             });
 
+            // If recieve a HTTP 200 code, tell the user their order has been made
             if (response.ok) {
                 success = true;
                 name = email = beanId = "";
                 quantity = 1;
                 errors = {};
-            } else {
+            } 
+            // If the request was not a success, relay that to the user
+            else {
                 alert("Failed to submit the order. Please try again.");
             }
         } catch (error) {

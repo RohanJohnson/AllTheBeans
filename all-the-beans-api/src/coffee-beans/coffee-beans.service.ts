@@ -11,10 +11,12 @@ export class CoffeeBeansService {
     private coffeeBeanRepository: Repository<CoffeeBean>,
   ) {}
 
+  // Get all beans in the database
   findAll(): Promise<CoffeeBean[]> {
     return this.coffeeBeanRepository.find();
   }
 
+  // Find a bean in the database by ID
   async findOne(id: string): Promise<CoffeeBean> {
     const bean = await this.coffeeBeanRepository.findOne({ where: { id } });
     if (!bean) {
@@ -23,19 +25,24 @@ export class CoffeeBeansService {
     return bean;
   }
 
+  // Add a new bean to the database
   create(coffeeBean: CoffeeBean): Promise<CoffeeBean> {
     return this.coffeeBeanRepository.save(coffeeBean);
   }
 
+  // Update values of a pre-existing bean in the database
   async update(id: string, coffeeBean: CoffeeBean): Promise<CoffeeBean> {
     await this.coffeeBeanRepository.update(id, coffeeBean);
     return this.findOne(id);
   }
 
+  // Delete a bean from the database
   async remove(id: string): Promise<void> {
     await this.coffeeBeanRepository.delete(id);
   }
 
+  // Search the database for beans based on a querystring
+  // The querystring can be used to query name, country and colour
   async search(query: string, page: number = 1, limit: number = 10): Promise<CoffeeBean[]> {
     return this.coffeeBeanRepository.createQueryBuilder('bean')
       .where('bean.name ILIKE :query OR bean.country ILIKE :query OR bean.colour ILIKE :query', { query: `%${query}%` })

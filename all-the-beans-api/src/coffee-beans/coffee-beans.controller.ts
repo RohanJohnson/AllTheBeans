@@ -6,12 +6,16 @@ import { CoffeeBean } from './entities/coffee-bean.entity';
 export class CoffeeBeansController {
   constructor(private readonly coffeeBeansService: CoffeeBeansService) {}
 
+  // Returns all beans in database
   @Get()
   findAll(): Promise<CoffeeBean[]> {
     return this.coffeeBeansService.findAll();
   }
   
-  // search needs to be above the ID wildcard otherwise it will be interpreted incorrectly
+  // Search needs to be above the ID wildcard endpoint 
+  // otherwise it will be interpreted as an ID
+
+  // Returns array of beans based on querystring
   @Get('search')
   async search(
     @Query('query') query: string,
@@ -23,21 +27,25 @@ export class CoffeeBeansController {
     return this.coffeeBeansService.search(query, pageNumber, limitNumber);
   }
 
+  // Returns bean by ID or NotFoundException
   @Get(':id')
   findOne(@Param('id') id: string): Promise<CoffeeBean> {
     return this.coffeeBeansService.findOne(id);
   }
 
+  // Takes in a JSON body to make a new bean with
   @Post()
   create(@Body() coffeeBean: CoffeeBean): Promise<CoffeeBean> {
     return this.coffeeBeansService.create(coffeeBean);
   }
 
+  // Takes in a JSON body to update a pre-existing bean
   @Put(':id')
   update(@Param('id') id: string, @Body() coffeeBean: CoffeeBean): Promise<CoffeeBean> {
     return this.coffeeBeansService.update(id, coffeeBean);
   }
 
+  // Deletes a bean if it exists
   @Delete(':id')
   remove(@Param('id') id: string): Promise<void> {
     return this.coffeeBeansService.remove(id);

@@ -11,11 +11,11 @@ export class BeanOfTheDayService {
     @InjectRepository(CoffeeBean) private coffeeBeanRepo: Repository<CoffeeBean>,
   ) {}
 
+  // Selects a new bean of the day
   async selectNewBean(): Promise<BeanOfTheDay> {
     
     // Get the last selected bean
     let lastSelection: BeanOfTheDay | null = null;
-
     try{
       lastSelection = await this.beanOfTheDayRepo.findOne({ order: { selectedAt: 'DESC' } });
     }
@@ -37,6 +37,7 @@ export class BeanOfTheDayService {
     return await this.beanOfTheDayRepo.save(beanOfTheDay);
   }
 
+  // Get the most recently set bean of the day
   async getBeanOfTheDay(): Promise<CoffeeBean | null> {
 
     const beanOfTheDay = await this.beanOfTheDayRepo.findOne({

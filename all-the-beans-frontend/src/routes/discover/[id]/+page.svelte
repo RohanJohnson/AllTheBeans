@@ -5,12 +5,13 @@
     import OrderForm from "../../../components/order-form.svelte";
 
     let bean: CoffeeBean | null = null;
-
     let id: string | null;
 
     onMount(async () => {
+        // Get id from URI
         id = window.location.pathname.split("/").filter(Boolean).pop() || null;
 
+        // If id exists make a request to the API for a bean with that id
         if (id != null) {
             const response = await api.get<CoffeeBean>(`/coffee-beans/${id}`);
             bean = response.data;
